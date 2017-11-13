@@ -3,7 +3,7 @@ This is a simple application to play tic tac toe game
 
 ## Install the Application
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+Run this command from the directory in which you want to install your tictactoe game
 
     git clone https://github.com/rayprj/tictactoe.git
 
