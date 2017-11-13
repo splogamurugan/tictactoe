@@ -1,0 +1,23 @@
+<div class="centre">
+  <table>
+    <tr>
+      <td>
+          <div class="tic-panel centre">Tic Tac Toe</div>
+      </td>
+    </tr>
+    <tr>  
+      <td>
+          <div *ngFor="let rows of _blocks; let i = index" class="tic-row">
+            <div *ngFor="let col of rows; let j = index" (click)="setPlayer(i, j)" class="tic-box"> {{col}} </div>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="tic-panel centre">{{_result}}</div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+  

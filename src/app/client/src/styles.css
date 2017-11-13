@@ -1,0 +1,34 @@
+  body {
+    background-color: #ffffff;
+  }
+  div.centre {
+    align-content:center;
+    display: flex;
+    justify-content: center;
+  }
+
+ .tic-row {
+    clear: both;
+ }
+ .tic-panel{
+    margin: .4vw 0;
+    background: #66A5AD;
+    color: lavender;
+    font-size: 1rem;
+    min-height: 2rem;
+  }
+  
+  .tic-box{
+    border: solid lavender 1px;
+    float: left;
+    font-size: 7rem;
+    background: #6AB187;
+    text-align: center;
+    color: lavender;
+    height: 10rem;
+    width: 10rem;
+  }
+  
+  .tic-box:hover{
+    background: #20948B;
+  }
