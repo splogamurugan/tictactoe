@@ -1,4 +1,9 @@
 <?php
+namespace App\Server\Game;
+
+use App\Server\Board\Evaluator;
+use App\Server\Game\Config;
+
 /**
  * Algorithm to find a best move with maximising the chance of bot.
  * Also by minimizing the chance of player
@@ -16,7 +21,7 @@ class Algorithm
      * @param BoardEvaluator $bv
      * @return void
      */
-    public function __construct(GameConfig $gc, BoardEvaluator $bv)
+    public function __construct(Config $gc, Evaluator $bv)
     {
         $this->gameConfig     = $gc;
         $this->boardEvaluator = $bv;

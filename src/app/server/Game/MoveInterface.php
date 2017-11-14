@@ -1,4 +1,6 @@
 <?php
+namespace App\Server\Game;
+
 /**
  * Interface for making a move using the $boardState
  */

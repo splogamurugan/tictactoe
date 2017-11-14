@@ -1,8 +1,10 @@
 <?php
+namespace App\Server\Board;
+
 /**
  * To evaluate the board
  */
-class BoardEvaluator
+class Evaluator
 {
     private $blocks;
     /**
