@@ -1,14 +1,18 @@
 <?php
+namespace App\Server\Board;
+
+use App\Server\Game\Config;
+
 /**
  * To validate the board
  *
  */
-class BoardValidator
+class Validator
 {
     private $board;
     private $config;
 
-    public function __construct(array $board, GameConfig $gc)
+    public function __construct(array $board, Config $gc)
     {
         $this->board = $board;
         $this->config = $gc;
@@ -16,12 +20,13 @@ class BoardValidator
     /**
      * common function to check all the rows/cols
      * @throws Exception
-     * @return void
+     * @return array validated board
      */
-    public function isValid()
+    public function validatedBoard()
     {
         $this->rowValid();
         $this->colValid();
+        return $this->board;
     }
     /**
      * is all the rows are valid?

@@ -1,8 +1,11 @@
 <?php
+
+namespace App\Server\Game;
+
 /**
  * a simple implementation to manage the config throughout this app
  */
-class GameConfig
+class Config
 {
     private $config;
     private $defaultConfig;

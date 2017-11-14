@@ -1,18 +1,22 @@
 <?php
+use App\Server\Game;
+use App\Server\Game\Config;
+use App\Server\Game\Algorithm;
+use App\Server\Board\Evaluator;
+use App\Server\Board\Validator;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-require_once __DIR__.'/app/server/init.php';
 $app->post('/move', function(Request $request, Response $response, array $args) {
     $allPostPutVars = $request->getParsedBody();
     if (!is_array($allPostPutVars)) {
         throw new Exception('invalid input');
     }
-    $gc = new GameConfig();
-    $be = new BoardEvaluator($gc->get('blocks'));
+    $gc = new Config();
+    $be = new Evaluator($gc->get('blocks'));
     $g = new Game(
-            $allPostPutVars, 
+            new Validator($allPostPutVars, $gc), 
             new Algorithm($gc, $be), 
             $gc, 
             $be
@@ -22,7 +26,7 @@ $app->post('/move', function(Request $request, Response $response, array $args) 
 });
 
 $app->get('/config', function(Request $request, Response $response, array $args) {
-    $gc = new GameConfig();
+    $gc = new Config();
     return json_encode($gc->get());
 });
 

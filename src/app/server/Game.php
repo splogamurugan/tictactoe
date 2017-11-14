@@ -1,4 +1,12 @@
 <?php
+namespace App\Server;
+
+use App\Server\Game\Algorithm;
+use App\Server\Game\Config;
+use App\Server\Board\Evaluator;
+use App\Server\Board\Validator;
+use App\Server\Game\MoveInterface;
+
 /**
  * bootstrap class for this app
  **/
@@ -8,17 +16,18 @@ class Game implements MoveInterface
     private $algorithm;
     private $config;
     /**
+     * @throws Exception
+     *
      * @param Array           $board
      * @param Algorithm       $ag
      * @param GameConfig      $gc
      * @param BoardEvaluation $be
+     *
+     * @return void
      */
-    public function __construct(array $board, Algorithm $a, GameConfig $gc, BoardEvaluator $be)
+    public function __construct(Validator $v, Algorithm $a, Config $gc, Evaluator $be)
     {
-        $bv = new BoardValidator($board, $gc);
-        $bv->isValid();
-
-        $this->board     = $board;
+        $this->board     = $v->validatedBoard();
         $this->algorithm = $a;
         $this->config    = $gc;
         $this->boardEvaluator = $be;
