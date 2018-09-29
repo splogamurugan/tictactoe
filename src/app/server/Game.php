@@ -9,6 +9,7 @@ use App\Server\Game\MoveInterface;
 
 /**
  * bootstrap class for this app
+ * This implements MoveInterface
  **/
 class Game implements MoveInterface
 {
